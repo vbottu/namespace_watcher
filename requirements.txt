@@ -1,0 +1,5 @@
+kubernetes==26.1.0
+prometheus_client==0.16.0
+tenacity==8.2.2
+flask==2.3.2
+

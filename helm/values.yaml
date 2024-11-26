@@ -1,0 +1,44 @@
+
+replicaCount: 1
+
+image:
+  repository: namespace_watcher
+  tag: latest
+  pullPolicy: IfNotPresent
+
+resources:
+  requests:
+    memory: "64Mi"
+    cpu: "100m"
+  limits:
+    memory: "128Mi"
+    cpu: "200m"
+metrics:
+  prometheus:
+    port: 8000
+    name: metrics
+  health: 
+    port: 5000
+    name: health
+livenessProbe:
+  enabled: true
+  path: /health
+  initialDelaySeconds: 10
+  periodSeconds: 10
+  failureThreshold: 3
+  successThreshold: 1
+  timeoutSeconds: 1
+
+readinessProbe:
+  enabled: true
+  path: /readiness
+  initialDelaySeconds: 15
+  periodSeconds: 5
+  failureThreshold: 3
+  successThreshold: 1
+  timeoutSeconds: 1
+
+
+serviceAccount:
+  name: namespace-watcher-sa
+            
