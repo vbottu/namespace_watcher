@@ -29,4 +29,4 @@ The Namespace Watcher Service monitors Kubernetes for namespace creation events 
    ```
 
 ## Observability
-Prometheus metrics are exposed at `http://<pod-ip>:8000/metrics`.
+Prometheus metrics are exposed at `http://<pod-ip>:8000.
